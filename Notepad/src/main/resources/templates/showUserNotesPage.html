@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <th:block th:include="fragments/headerfiles.html :: headertitle"/>
+    <th:block th:include="fragments/headerfiles.html :: headerfiles"/>
+    <link rel="stylesheet" th:href="@{/css/topMenu.css}"/>
+</head>
+<body>
+<header th:insert="fragments/topMenu :: topMenu"></header>
+<div id="mainDiv">
+    <div>
+        <div class=mailPageLabel th:each="note: ${notes}" id="noteText" style="margin-top: 20px">
+            <div style="text-align: right">
+                <i th:if="${note.privacy} == true" style="color: darkred">Приватная заметка</i>
+                <i th:if="${note.privacy} == false" style="color: green">Публичная заметка</i><br/>
+                <span>Последнее изменение: </span>
+                <i th:text="${#dates.format(note.lastUpdate, 'EEE, d MMM yyyy HH:mm')}" style="text-align: center">Date</i>
+            </div>
+            <details>
+                <summary>
+                    <span th:text="${note.title}"></span>
+                </summary>
+                <p th:utext="${note.content}"></p>
+            </details>
+            <div style="text-align: right">
+                <i th:if="${note.id} != 1" >
+                    <a style="color: black; float: right" th:href="@{'/delete/{id}'(id=${note.id})}">
+                        <img src="/img/delete.png" alt="d"/>
+                    </a>
+                    <a style="color: black" th:href="@{'/edit/{id}'(id=${note.id})}">
+                        <img src="/img/edit.png" alt="e"/>
+                    </a>
+                </i>
+
+            </div>
+        </div>
+    </div>
+    <a href="/addNote">
+        <button class="addNoteButton" type="submit">+</button>
+    </a>
+</div>
+</body>
+</html>

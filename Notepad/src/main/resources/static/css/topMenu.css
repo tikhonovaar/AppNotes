@@ -1,0 +1,115 @@
+:root {
+    --greyblue: #4c73c2;
+    --lightgray: #fafcfc;
+    --white: white;
+}
+
+.container {
+    background: var(--greyblue);
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    padding: 0 10px;
+    top: 0;
+}
+
+.logo-box {
+    float: left;
+    padding-left: 80px;
+    padding-top: 5px;
+}
+
+.logo-box a:hover {
+    text-decoration: none;
+    color: var(--white);
+}
+
+ul {
+    text-align: right;
+    margin-top: 10px;
+}
+
+li {
+    display: inline;
+}
+
+a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 5px 18px 5px 18px;
+    display: block;
+}
+
+nav {
+    display: table;
+    float: right;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.top-menu:after {
+    display: table;
+}
+
+.top-menu > li {
+    float: right;
+    position: relative;
+}
+
+.top-menu > li > a {
+    padding: 15px 30px;
+}
+
+.atopmenu:focus {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.atopmenu:hover,
+.atopmenu:active {
+    background: #537ac9;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.submenu {
+    background: var(--white);
+    border-left: 2px solid var(--greyblue);
+    border-right: 2px solid var(--greyblue);
+    border-bottom: 2px solid var(--greyblue);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 5;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: 0 0;
+    transition: .5s ease-in-out;
+}
+
+.submenu a {
+    color: black;
+    text-align: center;
+    padding: 12px 15px;
+    font-size: 13px;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+.submenu a:hover {
+    text-decoration: none;
+    background: var(--greyblue);
+    color: var(--white);
+}
+
+.submenu li:last-child a { border-bottom: none; }
+
+.top-menu > li:hover .submenu {
+    opacity: 1;
+    transform: scaleY(1);
+}

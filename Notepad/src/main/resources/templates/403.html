@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <th:block th:include="fragments/headerfiles.html :: headerfiles"/>
+    <th:block th:include="fragments/headerfiles.html :: headertitle"/>
+    <link rel="stylesheet" th:href="@{/css/topMenu.css}"/>
+</head>
+<body>
+    <header th:insert="fragments/topMenu :: topMenu"></header>
+    <div id="mainDiv" style="margin-top: 15%">
+        <div id="titleDiv">
+            <h1>Ошибка 403</h1>
+            <p>3 грустных факта о нашем мире:</p>
+            <p>1) Белки забывают, где прячут орехи</p>
+            <p>2) Мировой океан изучен только на 5%</p>
+            <p>3) Вы не можете просматривать эту страницу</p>
+        </div>
+    </div>
+</body>
+</html>

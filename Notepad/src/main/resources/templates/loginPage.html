@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <th:block th:include="fragments/headerfiles.html :: headertitle"/>
+    <link rel="stylesheet" th:href="@{css/loginPage.css}"/>
+</head>
+<body>
+<div class="container">
+    <div class="notepad">
+        <form method="post">
+            <div class="sign"><br/>
+                <label><input type="text" name="username" required="required"
+                              placeholder="Email или логин"/></label><br/><br/>
+                <label><input type="password" name="password" required="required"
+                              placeholder="Пароль"/></label><br/><br/>
+                <button type="submit">Войти</button>
+                <br/><br/>
+                <a href="/registration">Зарегистрироваться</a>
+                <br/>
+                <div th:if="${message}"><p th:text="${message}"></p></div>
+            </div>
+        </form>
+    </div>
+    <div class="right-bookmark"></div>
+    <div class="bottom-bookmark-part1"></div>
+    <div class="bottom-bookmark-part2"></div>
+</div>
+</body>
+</html>

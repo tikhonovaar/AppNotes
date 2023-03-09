@@ -1,0 +1,27 @@
+<div th:fragment="topMenu">
+    <li class="container">
+        <div class="logo-box">
+            <a href="/">
+                <img src="/img/notepad.ico" alt=""/>Заметки
+            </a>
+        </div>
+        <nav>
+            <ul class="top-menu">
+                <li sec:authorize="isAuthenticated()"><a class="atopmenu" href="" sec:authentication="name"></a>
+                    <ul class="submenu">
+                        <li><a href="/userInfo">
+                            <img src="/img/profile.png" alt=""/>Мой профиль
+                        </a></li>
+                        <li><a href="/userNotes">
+                            <img src="/img/notepad.png" alt=""/>Мои заметки
+                        </a></li>
+                        <li><a href="/logout">Выйти</a></li>
+                    </ul>
+                </li>
+                <li sec:authorize="isAnonymous()"><a class="atopmenu" href="/login">Вход</a></li>
+                <li sec:authorize="hasRole('ADMIN')"><a class="atopmenu" href="/users">Пользователи</a></li>
+                <li><a class="atopmenu" href="/">Главная</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

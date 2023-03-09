@@ -1,0 +1,76 @@
+:root {
+    --greyblue: #4c73c2;
+    --red: red;
+    --white: white;
+}
+
+.container {
+    text-align: center;
+    margin-top: 30px;
+    position: relative;
+}
+
+.notepad {
+    background: var(--greyblue);
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    width: 440px;
+    height: 650px;
+    position: absolute;
+    margin-top: 0;
+    margin-left: 35%;
+}
+
+.sign {
+    background: var(--white);
+    border-radius: 18px;
+    border: 5px solid gainsboro;
+    width: 260px;
+    height: 170px;
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 10%;
+}
+
+.right-bookmark {
+    background: black;
+    width: 20px;
+    height: 652px;
+    position: absolute;
+    margin-top: -0.1%;
+    margin-left: 60%;
+}
+
+.bottom-bookmark-part1,
+.bottom-bookmark-part2 {
+    width: 0;
+    height: 0;
+    position: absolute;
+    margin-top: 42.75%;
+    margin-left: 38%;
+    border-top: 40px solid var(--red);
+}
+
+.bottom-bookmark-part1 {
+    border-right: 40px solid transparent;
+}
+
+.bottom-bookmark-part2 {
+    border-left: 40px solid transparent;
+}
+
+input {
+    background: var(--white);
+    border: none;
+    border-bottom: 1px solid black;
+    width: 90%;
+    outline: none;
+}
+
+input, button, a {
+    font-size: 16px;
+}
+
+a {
+    color: var(--red);
+}

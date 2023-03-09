@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <th:block th:include="fragments/headerfiles.html :: headertitle"/>
+    <th:block th:include="fragments/headerfiles.html :: headerfiles"/>
+    <link rel="stylesheet" th:href="@{/css/topMenu.css}" />
+</head>
+<body>
+    <header th:insert="fragments/topMenu :: topMenu"></header>
+    <div id="mainDiv">
+        <table class="table table-bordered table-hover horizontal-align">
+            <thead>
+                <tr>
+                    <th>Логин</th>
+                    <th>Email</th>
+                    <th>Пароль</th>
+                    <th>Роль</th>
+                    <th>Статус</th>
+                    <th>Удалить</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.username}">Login</td>
+                    <td th:text="${user.email}">Email</td>
+                    <td th:text="${user.password}">Password</td>
+                    <td>
+                        <p th:text="${user.roles}"></p>
+                        <a style="padding: 0" th:href="@{'/changeRole/{id}'(id=${user.id})}">
+                            <button style="font-size: 15px">Сменить роль</button>
+                        </a>
+                    </td>
+                    <td>
+                        <div th:if="${user.isNonBlocked == true}">
+                            <p style="color: green">Активен</p>
+                            <a style="padding: 0" th:href="@{'/blockUser/{id}'(id=${user.id})}">
+                                <button style="font-size: 15px">Заблокировать</button>
+                            </a>
+                        </div>
+                        <div th:if="${user.isNonBlocked == false}">
+                            <p style="color: darkred">Заблокирован</p>
+                            <a style="padding: 0" th:href="@{'/unlockUser/{id}'(id=${user.id})}">
+                                <button style="font-size: 15px">Разблокировать</button>
+                            </a>
+                        </div>
+                    </td>
+                    <td style="text-align: center"><a th:href="@{'/delete/user/{id}'(id=${user.id})}">
+                        <img style="width: 20px; height: 20px" src="/img/delete.png" alt=""/>
+                    </a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
